@@ -1,24 +1,18 @@
 import React, { Component } from "react";
 import Location from "./Location";
 import WeatherData from "./WeatherData";
+import transformWeather from "../../services/transformWeather";
+import { api_weather } from "../../constants/apiUrl";
 import PropTypes from "prop-types";
+import { SUN } from "../../constants/weathers";
 import "./styles.css";
-import { SUN, WINDY } from "../../constants/weathers";
 
 const data = {
+  humidity: 10,
   temperature: 5,
   weatherState: SUN,
-  humidity: 10,
-  wind: "10 m/s"
+  wind: `10 m/s`
 };
-
-const testData = {
-  temperature: 5,
-  weatherState: WINDY,
-  humidity: 20,
-  wind: "10 m/s"
-};
-
 class WeatherLocation extends Component {
   constructor() {
     super();
@@ -29,11 +23,17 @@ class WeatherLocation extends Component {
   }
 
   handleUpdateClick = () => {
-    console.log("actualizado");
-    this.setState({
-      city: "Miranda",
-      data: testData
-    });
+    fetch(api_weather)
+      .then(resolve => {
+        return resolve.json();
+      })
+      .then(weather => {
+        const newWeather = transformWeather(weather);
+        console.log(newWeather);
+        this.setState({
+          data: newWeather
+        });
+      });
   };
 
   render() {
