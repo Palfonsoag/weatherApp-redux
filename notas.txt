@@ -1,0 +1,54 @@
+una funcion flecha tiene una sintaxis mas corta,
+no vincula los "this, argument, super etc" propios sino que usa los del contexto que las llama.
+son anonimas, no relacionadas con metodos, por ende no pueden ser usadas como constructores.
+
+
+function mi_funcion(){
+    return 'classic function':
+}
+
+const mi_funcion =()=>{
+    var hola = 'arrow function';
+    return hola; 
+};
+
+const mi_funcion =()=>(return 'arrow function';);
+     
+no hardcodear, siempre pasar valores por los props, de esta forma, creamos componentes reutilisables.
+
+Desctructuring:
+
+tecnica para asignar valores a variables desde un objeto complejo.
+
+
+ Desctructuring target <= Desctructuring source.
+
+ ejemplo: 
+    const obj = {name: 'Pedro', nick:'peter'}
+
+    const {name,nick} = obj //si las propiedades del objeto y las constantes comparten nombre.
+    
+    const {name:theName,nick: thenNick} = obj //si las propiedades del objeto y las constantes no comparten nombre, en este caso queremos que se llamen theName y theNick.
+
+    igual pasa con los arreglos.
+
+    const myArray = ['a','b']
+
+    const [x,y]= myArray;
+
+    entonces x = 'a' y y = 'b'
+
+    con Desctructuring se puede tomar parte de los arreglos.
+
+    Prop type tiene una una pagina en github para consultar la documentacion.
+    
+    Sass y Less son pre procesadores de css
+
+
+ciclo de vida de un componente:
+    constructor > estado inicial > render()
+     cuando se hace un setState, se llama al metodo render otra vez.
+
+     key del api de weather  &APPID=5cfcf757ca5edb0285dbf8e7513ed795
+     credenciales:
+        p.alfonsoag@gmail.como p.24655694
