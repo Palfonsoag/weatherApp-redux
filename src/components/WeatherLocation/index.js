@@ -10,6 +10,7 @@ import "./styles.css";
 class WeatherLocation extends Component {
   constructor(props) {
     super(props);
+    //console.log(props);
     const { city } = props;
     this.state = {
       city,
@@ -45,7 +46,8 @@ class WeatherLocation extends Component {
     );
   }
 }
-WeatherLocation.prototype = {
+WeatherLocation.propTypes = {
   city: PropTypes.string.isRequired
 };
+
 export default WeatherLocation;
