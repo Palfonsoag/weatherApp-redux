@@ -52,3 +52,8 @@ ciclo de vida de un componente:
      key del api de weather  &APPID=5cfcf757ca5edb0285dbf8e7513ed795
      credenciales:
         p.alfonsoag@gmail.como p.24655694
+
+
+containers: se conectan al estado de la app con el connect
+
+Presentational Components: son los que se maquetan.
