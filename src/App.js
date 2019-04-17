@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Grid, Col, Row } from "react-flexbox-grid";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
@@ -60,4 +61,14 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  setCity: PropTypes.func.isRequired
+};
+
+const mS = state => ({}); // mapStateToPros
+const mD = { setCity }; //mapDispatchToProps (actions)
+
+export default connect(
+  mS,
+  mD
+)(App);
