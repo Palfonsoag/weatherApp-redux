@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { setCity } from "../actions";
+import { setSelectedCity } from "../actions";
 import LocationList from "../components/LocationList";
 
 class LocationListContainer extends Component {
   handleSelectionLocation = city => {
-    const { setCity } = this.props;
-    setCity(city);
+    const { setSelectedCity } = this.props;
+    setSelectedCity(city);
   };
   render() {
     const { cities } = this.props;
@@ -21,11 +21,11 @@ class LocationListContainer extends Component {
 }
 
 LocationListContainer.propTypes = {
-  setCity: PropTypes.func.isRequired,
+  setSelectedCity: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired
 };
 const mS = state => ({}); // mapStateToPros
-const mD = { setCity }; //mapDispatchToProps (actions)
+const mD = { setSelectedCity }; //mapDispatchToProps (actions)
 
 export default connect(
   mS,
