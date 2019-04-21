@@ -7,7 +7,6 @@ import getUrlWeatherByCity from "../services/getUrlWeatherByCity";
 
 class ForecastExtendedContainer extends Component {
   render() {
-    console.log(this.props);
     const { city, forecastData } = this.props;
     return city && <ForecastExtended city={city} forecastData={forecastData} />;
   }
