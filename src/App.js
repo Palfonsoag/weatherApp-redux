@@ -15,7 +15,9 @@ const cities = [
   "Lisboa,por",
   "Madrid,spa",
   "Buenos Aires,ar",
-  "Lima,pe"
+  "Lima,pe",
+  "Santiago,cl",
+  "Miami,us"
 ];
 
 class App extends Component {
