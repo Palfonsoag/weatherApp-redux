@@ -29,10 +29,16 @@ const getWeatherCity = payload => {
   return { type: ACTIONS.GET_WEATHER_CITY, payload };
 };
 export const setSelectedCity = payload => {
-  return dispatch => {
+  return (dispatch, getState) => {
     const url_forecast = `${url_base_forecast}?q=${payload}&appid=${api_key}`;
     dispatch(setCity(payload));
-
+    const state = getState();
+    const date =
+      state.cityReducer[payload] && state.cityReducer[payload].forecastDataDate;
+    const now = new Date();
+    if (date && now - date < 1 * 60 * 100) {
+      return;
+    }
     return fetch(url_forecast)
       .then(response => response.json())
       .then(weather_data => {

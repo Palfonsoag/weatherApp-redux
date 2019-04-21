@@ -11,7 +11,10 @@ export const cityReducer = (state = initialState, action) => {
     }
     case ACTIONS.SET_FORECAST_DATA: {
       const { city, forecastData } = action.payload;
-      return { ...state, [city]: { ...state[city], forecastData } };
+      return {
+        ...state,
+        [city]: { ...state[city], forecastData, forecastDataDate: new Date() }
+      };
     }
     case ACTIONS.SET_WEATHER_CITY: {
       const { city, weather } = action.payload;
