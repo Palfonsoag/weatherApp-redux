@@ -11,15 +11,15 @@ export const cityReducer = (state = initialState, action) => {
     }
     case ACTIONS.SET_FORECAST_DATA: {
       const { city, forecastData } = action.payload;
-      return { ...state, [city]: { forecastData } };
+      return { ...state, [city]: { ...state[city], forecastData } };
     }
     case ACTIONS.SET_WEATHER_CITY: {
       const { city, weather } = action.payload;
-      return { ...state, [city]: { weather } };
+      return { ...state, [city]: { ...state[city], weather } };
     }
     case ACTIONS.GET_WEATHER_CITY: {
       const city = action.payload;
-      return { ...state, [city]: { weather: null } };
+      return { ...state, [city]: { ...state[city], weather: null } };
     }
     default:
       return state;
