@@ -4,8 +4,9 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
-import LocationList from "./components/LocationList";
-import ForeCastExtended from "./components/ForeCastExtended";
+import LocationListContainer from "./containers/LocationListContainer";
+import ForecastExtendedContainer from "./containers/ForecastExtendedContainer";
+
 import "./App.css";
 
 const cities = [
@@ -14,22 +15,13 @@ const cities = [
   "Lisboa,por",
   "Madrid,spa",
   "Buenos Aires,ar",
-  "Lima,pe"
+  "Lima,pe",
+  "Santiago,cl",
+  "Miami,us"
 ];
+
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      city: null
-    };
-  }
-
-  handleSelectionLocation = city => {
-    this.setState({ city });
-  };
-
   render() {
-    const { city } = this.state;
     return (
       <Grid>
         <Row>
@@ -43,19 +35,12 @@ class App extends Component {
         </Row>
         <Row>
           <Col xs={12} md={6}>
-            <LocationList
-              cities={cities}
-              onSelectedLocation={this.handleSelectionLocation}
-            />
+            <LocationListContainer cities={cities} />
           </Col>
           <Col xs={12} md={6}>
             <Paper elevation={6}>
               <div className="details">
-                {city ? (
-                  <ForeCastExtended city={city} />
-                ) : (
-                  <h1>No se seleccionó una ciudad</h1>
-                )}
+                <ForecastExtendedContainer />
               </div>
             </Paper>
           </Col>
