@@ -11,10 +11,12 @@ import "./App.css";
 
 const cities = [
   "Caracas,ve",
-  "Vigo,es",
   "Lisboa,por",
-  "Madrid,spa",
   "Buenos Aires,ar",
+  "Cordoba,ar",
+  "Bahia Blanca,ar",
+  "Vigo,es",
+  "Madrid,spa",
   "Lima,pe",
   "Santiago,cl",
   "Miami,us"
